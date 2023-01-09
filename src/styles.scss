@@ -98,6 +98,8 @@ h1 {
 }
 
 
+
+
 @media (min-width: 40em) {
     .card-container{
         grid-template-columns: repeat(2, 1fr);
@@ -115,3 +117,5 @@ h1 {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+

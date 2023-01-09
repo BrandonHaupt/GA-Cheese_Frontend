@@ -17,8 +17,8 @@ function Index(){
             <h1>Cheeses</h1>
             <div className='card-container'>
                 {cheeses.map(cheese => (
-                    <div className='card'>
-                        <Link to={`/${cheese.id}`} className='cheese'>
+                    <div key={cheese._id} className='card'>
+                        <Link to={`/${cheese._id}`} className='cheese'>
                             <img className='cheese-img' src={cheese.image} alt={cheese.name}/>
                             <h2>{cheese.name}</h2>
                         </Link>

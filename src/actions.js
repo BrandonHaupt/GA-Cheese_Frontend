@@ -21,3 +21,31 @@ export const createAction = async ({request}) => {
 
     return redirect("/")
 }
+
+export const updateAction = async ({request, params}) => {
+    const formData = await request.formData()
+
+    const updatedCheese = {
+        name: formData.get('name'),
+        image: formData.get('image'),
+        title: formData.get('title')
+    }
+
+    await fetch(URL + '/cheese/' + params.id, {
+        method: 'put',
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedCheese)
+    })
+    return redirect("/")
+}
+
+export const deleteAction = async ({params}) => {
+    // delete person with our API
+    await fetch(URL + "/cheese/" + params.id, {
+        method: "delete"
+    })
+    // redirect to index
+    return redirect("/")
+}
