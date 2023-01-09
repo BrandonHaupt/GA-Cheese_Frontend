@@ -1,0 +1,117 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+* {
+    padding: 0; 
+    margin: 0; 
+}
+  
+img, picture, svg, video {
+    display: block; 
+    max-width: 100%;
+}
+  
+body {
+    min-height: 100vh;
+}
+
+/////////////////
+/// VARIABLES ///
+/////////////////
+
+$maincolor: #222;
+$contrastcolor: rgb(244, 244, 244);
+$lightGrey: #555;
+
+
+// -------------------//
+//        Main        //
+// -------------------//
+
+@mixin white-text-black-bg {
+    color: $contrastcolor;
+    background-color: $maincolor;
+}
+
+nav {
+    @include white-text-black-bg();
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    
+    a {
+        @include white-text-black-bg();
+        padding: 0 10px;
+    }
+}
+
+h1 {
+    margin: 2rem;
+}
+
+.cheese-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.form {
+    margin: 1rem 2rem;
+
+    input {
+        border-radius: 15px;
+        border: 2px solid $lightGrey;
+        padding: 5px;
+        margin: 0 10px;
+    }
+
+    input[type = submit] {
+        border-radius: 30px;
+        padding: 5px 20px;
+    }
+
+    input[type = submit]:hover {
+        cursor: pointer;
+        background-color: $maincolor;
+        color: $contrastcolor;
+        border: 2px solid #111;
+    }
+}
+
+.card-container {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    row-gap: 1rem;
+    padding: 2rem 0 0 2rem;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+@media (min-width: 40em) {
+    .card-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 60em) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 80em) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
