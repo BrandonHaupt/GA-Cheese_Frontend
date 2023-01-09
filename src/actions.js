@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 
-const URL = "https://cheese-backend-fh3q.onrender.com"
+const URL = "https://cheese-backend-fv1m.onrender.com"
 
 export const createAction = async ({request}) => {
     const formData = await request.formData()
@@ -22,22 +22,26 @@ export const createAction = async ({request}) => {
     return redirect("/")
 }
 
+
+
 export const updateAction = async ({request, params}) => {
+    // get data from form
     const formData = await request.formData()
-
+    // set up our new person to match schema
     const updatedCheese = {
-        name: formData.get('name'),
-        image: formData.get('image'),
-        title: formData.get('title')
+        name: formData.get("name"),
+        image: formData.get("image"),
+        title: formData.get("title")
     }
-
-    await fetch(URL + '/cheese/' + params.id, {
-        method: 'put',
-        header: {
-            "Content-Type": "application/json"
+    // Send updated person to our API
+    await fetch(URL + "/cheese/" + params.id, {
+        method: "put",
+        headers: {
+            "Content-Type":"application/json"
         },
         body: JSON.stringify(updatedCheese)
     })
+    // redirect to index
     return redirect("/")
 }
 

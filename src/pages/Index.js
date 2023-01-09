@@ -19,10 +19,10 @@ function Index(){
                 {cheeses.map(cheese => (
                     <div key={cheese._id} className='card'>
                         <Link to={`/${cheese._id}`} className='cheese'>
-                            <img className='cheese-img' src={cheese.image} alt={cheese.name}/>
                             <h2>{cheese.name}</h2>
                         </Link>
-
+                        
+                        <img className='cheese-img' src={cheese.image} alt={cheese.name}/>
                         <h3>{cheese.title}</h3>
                     </div>
                 ))}
